@@ -17,6 +17,11 @@ class CreatePartiesTable extends Migration
             $table->id();
             $table->string('name', 50)->unique();
             $table->foreignId('game_id')->references('id')->on('games')->onDelete('cascade');
+             //PARA SABER QUÉ USUARIO CREO LA PARTY
+             $table->bigInteger('user_id')->unsigned();
+
+             //llave foranea CREANDO UNA RELACIÓN. NOMBRE DE LA TABLA EN SINGULAR Y _ID
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

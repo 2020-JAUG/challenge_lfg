@@ -14,7 +14,10 @@ class PartyController extends Controller
      */
     public function index()
     {
-        //
+        //CONFIRMAMOS QUE EXISTA
+        $parties = auth()->user()->parties;
+
+        return response()->json(['success' => true, 'data' => $parties], 200);
     }
 
     /**
@@ -25,7 +28,23 @@ class PartyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $party = new Party();
+        $party->name = $request->name;
+
+        if(auth()->user()->parties()->save($party))
+            return response()->json([
+                'success' => true,
+                'data' => $party->toArray()
+            ]);
+            else
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Party not added'
+                ], 500);
     }
 
     /**

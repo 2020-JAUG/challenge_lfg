@@ -31,13 +31,11 @@ class PostController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required'
         ]);
 
         $post = new Post();
         $post->title = $request->title;
         $post->description = $request->description;
-        $post->image = $request->image;
 
         if(auth()->user()->posts()->save($post))
             return response()->json([
@@ -82,7 +80,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $id)
+    public function update(Request $request, $id)
     {
         $post = auth()->user()->posts()->find($id);
         if (!$post) {
@@ -113,7 +111,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $id)
+    public function destroy($id)
     {
         $post = auth()->user()->posts()->find($id);
         if(!$post){

@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration
             $table->id();
             //LLAVE FORANEA
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('party_id')->references('id')->on('parties')->onDelete('cascade');
             $table->string('title');
             $table->mediumText('description');
             $table->timestamps();
