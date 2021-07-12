@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    protected $fillable = ['post', 'idUser', 'idParty'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    //ER con las tablas
+    public function party()
+    {
+        return $this->belongsTo(Party::class);
+    }
 }
