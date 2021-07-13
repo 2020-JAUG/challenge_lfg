@@ -11,6 +11,7 @@ class Game extends Model
     //ENCAPSULAMOS LOS ATRIBUTOS
     protected $fillable = ['title', 'thumbnail_url', 'user_id'];
 
+    //UN JUEGO PUEDE ESTAR EN MUCHAS PARTIES
     public function party ()
     {
         return $this ->hasMany(Party::class);

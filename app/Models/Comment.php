@@ -11,12 +11,9 @@ class Comment extends Model
     //ENCAPSULAMOS LOS ATRIBUTOS
     protected $fillable = ['title', 'description', 'user_id'];
 
+    //UN COMMENTARIO, PERTENECE A UN POST
     public function post()
     {
         return $this->belongsTo(Post::class);
-    }
-    public function user()
-    {
-        return $this->belongsTo(User::class);
     }
 }

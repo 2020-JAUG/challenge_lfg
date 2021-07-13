@@ -14,14 +14,16 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
 
+    //UN USER TIENE PUEDE TENER MUCHOS POSTS
     public function posts (){
         return $this -> hasMany(Post::class);
     }
-
+    //UN USER, PUEDE ESTAR EN MUCHAS PARTIES
     public function party_user (){
         return $this -> hasMany(PartyUser::class);
     }
 
+    //UN USER PUEDE TENER MUCHOS COMENTARIOS
     public function comment(){
         return $this -> hasMany(Comment::class);
     }

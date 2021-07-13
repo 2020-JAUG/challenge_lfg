@@ -10,19 +10,16 @@ class Party extends Model
     use HasFactory;
     protected $fillable = ['name', 'idUser', 'idGame'];
 
-    //Una fiesta puede tener muchos post
+    //UNA PARTY PUEDE TENER MUCHOS POSTS
     public function post (){
         return $this -> hasMany(Post::class);
     }
 
-    public function comment(){
-        return $this -> hasMany(Comment::class);
-    }
-
+    //UNA PARTY SOLO PUEDE TENER UN JUEGO
     public function game(){
         return $this -> belongsTo(Game::class);
     }
-
+    //RELACION DE MUCHOS A MUCHOS ENTRE USERS Y PARTIES
     public function party_user(){
         return $this -> hasMany(Party_User::class);
     }

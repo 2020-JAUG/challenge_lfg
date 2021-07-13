@@ -20,8 +20,6 @@ class CreateGamesTable extends Migration
             //PARA SABER QUÉ USUARIO CREO EL JUEGO
             $table->bigInteger('user_id')->unsigned();
 
-            //llave foranea CREANDO UNA RELACIÓN. NOMBRE DE LA TABLA EN SINGULAR Y _ID
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
