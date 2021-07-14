@@ -84,6 +84,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $post = auth()->user()->posts()->find($id);
+
         if (!$post) {
             return response()->json([
                 'success' => false,
