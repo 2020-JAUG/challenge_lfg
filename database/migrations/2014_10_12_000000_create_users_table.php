@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->bigInteger('game_id')->unsigned();
             $table->string('steamUsername', 20)->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

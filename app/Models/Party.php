@@ -19,6 +19,12 @@ class Party extends Model
     public function game(){
         return $this -> belongsTo(Game::class);
     }
+
+    //UNA PARTY PUEDE SER DE UN USER
+    public function user(){
+        return $this -> belongsTo(User::class);
+    }
+
     //RELACION DE MUCHOS A MUCHOS ENTRE USERS Y PARTIES
     public function party_user(){
         return $this -> hasMany(Party_User::class);

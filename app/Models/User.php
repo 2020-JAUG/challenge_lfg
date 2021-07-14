@@ -23,6 +23,11 @@ class User extends Authenticatable
         return $this -> hasMany(PartyUser::class);
     }
 
+    //UN USER, PUEDE CREAR EN MUCHAS PARTIES
+    public function user (){
+        return $this -> hasMany(Party::class);
+    }
+
     //UN USER PUEDE TENER MUCHOS COMENTARIOS
     public function comment(){
         return $this -> hasMany(Comment::class);
