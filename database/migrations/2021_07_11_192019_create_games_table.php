@@ -16,7 +16,7 @@ class CreateGamesTable extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title', 20);
-            $table->string('thumbnail_url', 200)->unique();
+            $table->string('thumbnail_url', 20)->unique();
             //PARA SABER QUÉ USUARIO CREO EL JUEGO
             $table->bigInteger('user_id')->unsigned();
 
