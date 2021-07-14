@@ -16,4 +16,10 @@ class Game extends Model
     {
         return $this ->hasMany(Party::class);
     }
+
+    //UN JUEGO TIENE UN DUEÑO
+    public function user()
+    {
+        return $this ->belongsTo(User::class);
+    }
 }

@@ -18,7 +18,7 @@ class CreateGamesTable extends Migration
             $table->string('title', 20);
             $table->string('thumbnail_url', 20)->unique();
             //PARA SABER QUÉ USUARIO CREO EL JUEGO
-            $table->bigInteger('user_id')->unsigned();
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->timestamps();
         });
