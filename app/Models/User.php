@@ -14,7 +14,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasApiTokens;
 
-    //UN USER TIENE PUEDE TENER MUCHOS POSTS
+    //UN USER PUEDE TENER MUCHOS POSTS
     public function posts (){
         return $this -> hasMany(Post::class);
     }
@@ -31,6 +31,11 @@ class User extends Authenticatable
     //UN USER PUEDE TENER MUCHOS COMENTARIOS
     public function comment(){
         return $this -> hasMany(Comment::class);
+    }
+
+    //UN USER PUEDE TENER MUCHOS GAMES
+    public function game(){
+        return $this -> hasMany(Game::class);
     }
 
     /**
