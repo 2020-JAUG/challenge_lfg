@@ -36,11 +36,11 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
 
          //CONFIRMAMOS LA AUTHENTICATION
-         $user = auth()->user()->find($user);
+         $user = auth()->user()->find($id);
 
          if(!$user) {
              return response()->json([
