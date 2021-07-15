@@ -40,7 +40,7 @@ class UserController extends Controller
     {
 
          //CONFIRMAMOS LA AUTHENTICATION
-         $user = auth()->user()->posts()->find($user);
+         $user = auth()->user()->find($user);
 
          if(!$user) {
              return response()->json([
