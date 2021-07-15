@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        //
     }
 
     /**
@@ -38,7 +38,21 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+
+         //CONFIRMAMOS LA AUTHENTICATION
+         $user = auth()->user()->posts()->find($user);
+
+         if(!$user) {
+             return response()->json([
+                 'success' => false,
+                 'message' => 'Post not found'
+             ], 400);
+         }
+
+         return response()->json([
+             'success' => true,
+             'message' => $user->toArray()
+         ], 200);
     }
 
     /**
